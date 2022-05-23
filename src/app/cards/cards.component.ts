@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -40,7 +41,12 @@ export class CardsComponent implements OnInit {
     return studentArr.id;
   }
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
+
+  onCardClick() {
+    console.log('funktioniert');
+    (<any>this.route).navigate(['/recipe'], { queryParams: { id: '1' } });
+  }
 }

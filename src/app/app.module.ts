@@ -18,6 +18,12 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { Auth2Component } from './auth2/auth2.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
+import { UtilityService } from './utility.service';
+import { RegistrationComponent } from './registration/registration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IngredientsComponent } from './ingredients/ingredients.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RecipeComponent,
     Auth2Component,
     CreateRecipeComponent,
+    RegistrationComponent,
+    IngredientsComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +50,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     BrowserAnimationsModule,
     NgbModule,
+    HttpClientModule,
+    OAuthModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [UtilityService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -18,9 +18,12 @@
         height="auto"
         class="d-md-none"
       />
-      <p>Name:</p>
-      <p>Beschreibung:</p>
-      <p>Zutaten:</p>
+      <p>Name: {{ recipe.name }}</p>
+      <p>Description: {{ recipe.description }}</p>
+      <p>Cooking Time: {{ recipe.cookingTime }} min</p>
+      <p>Cooking Steps: {{ recipe.cookingSteps }}</p>
+      <p>Level: {{ recipe.levelId }}</p>
+      <p>Nationality: {{ recipe.nationalityId }}</p>
     </div>
   </div>
   <div class="col-2 d-flex justify-content-center pt-5 d-none d-md-block">

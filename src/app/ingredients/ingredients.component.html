@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ingredient</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingredient of ingredients; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ ingredient.name }}</td>
+          <td>{{ ingredient.quantity }}</td>
+          <td>{{ ingredient.unit }}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="onEdit(i)">
+              Edit
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="onDelete(i)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary" (click)="onNew()">
+        New
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label"
+          >Ingredient:</label
+        >
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="ingModel.name"
+            name="name"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastname-input" class="col-2 col-form-label"
+          >Quantity:</label
+        >
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="number"
+            [(ngModel)]="ingModel.quantity"
+            name="quantity"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label">Unit:</label>
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="ingModel.unit"
+            name="name"
+          />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">{{ submitType }}</button>
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>
